@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Jogador {
     Tabuleiro tabuleiro;
-    Navios navios;
+    Ships navios;
     int[] tiro = new int[2];
     boolean isPlayer;
     int acertos;
     char[] colunasArray = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
-    public Jogador(Tabuleiro tabuleiro, Navios navios, boolean isPlayer) {
+    public Jogador(Tabuleiro tabuleiro, Ships navios, boolean isPlayer) {
         this.tabuleiro = tabuleiro;
         this.navios = navios;
         this.isPlayer = isPlayer;
@@ -21,11 +21,11 @@ public class Jogador {
     }
 
     public void placeShips() {
-        this.navios.iniciaNaviosAliados(this.tabuleiro.grade);
+        this.navios.startPlayerShips(this.tabuleiro.grade);
     }
 
     public void placeComputerShips() {
-        this.navios.iniciaNaviosInimigos(this.tabuleiro.grade);
+        this.navios.startComputerShips(this.tabuleiro.grade);
     }
 
     public void darTiroAliado() {
@@ -43,8 +43,8 @@ public class Jogador {
     }
 
     public boolean acertou(int[][] naviosAdversario) {
-        for(int navio = 0; navio < naviosAdversario.length; ++navio) {
-            if (this.tiro[0] == naviosAdversario[navio][0] && this.tiro[1] == naviosAdversario[navio][1]) {
+        for (int[] ints : naviosAdversario) {
+            if (this.tiro[0] == ints[0] && this.tiro[1] == ints[1]) {
                 System.out.printf("Você acertou o tiro (%s,%d)\n", this.colunasArray[this.tiro[0]], this.tiro[1] + 1);
                 return true;
             }
