@@ -1,9 +1,11 @@
+import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Navios {
     int[][] navios = new int[10][2];
     char[] colunasArray = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
-    public Navios() {
-    }
 
     public void iniciaNaviosAliados(int[][] tabuleiro) {
         int i;
