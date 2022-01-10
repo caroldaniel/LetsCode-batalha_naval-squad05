@@ -33,8 +33,7 @@ public class Jogador {
         System.out.println("Linha: ");
         this.tiro[0] = (new String(this.colunasArray)).indexOf(entrada.next().toUpperCase(Locale.ROOT));
         System.out.println("Coluna: ");
-        this.tiro[1] = entrada.nextInt();
-        this.tiro[1] = this.tiro[1]--;
+        this.tiro[1] = entrada.nextInt() - 1;
     }
 
     public void darTiroInimigo() {
