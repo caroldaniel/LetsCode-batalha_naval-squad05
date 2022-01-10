@@ -10,27 +10,27 @@ public class Jogo {
     }
 
     public void play() {
-        this.jogador1.tabuleiro.inicializaTabuleiro();
-        this.maquina.tabuleiro.inicializaTabuleiro();
+        this.jogador1.board.startBoard();
+        this.maquina.board.startBoard();
         this.jogador1.showGrade();
         this.jogador1.placeShips();
         this.maquina.placeComputerShips();
-        System.out.println(Arrays.deepToString(this.maquina.navios.navios));
+        System.out.println(Arrays.deepToString(this.maquina.ships.ships));
 
         do {
             this.jogador1.showGrade();
             this.jogador1.darTiroAliado();
-            if (this.jogador1.acertou(this.maquina.navios.navios)) {
+            if (this.jogador1.acertou(this.maquina.ships.ships)) {
                 ++this.jogador1.acertos;
             }
 
-            this.jogador1.tabuleiro.alteraTabuleiro(this.maquina.navios.navios, this.jogador1);
+            this.jogador1.board.updateBoard(this.maquina.ships.ships, this.jogador1);
             this.maquina.darTiroInimigo();
-            if (this.maquina.acertou(this.jogador1.navios.navios)) {
+            if (this.maquina.acertou(this.jogador1.ships.ships)) {
                 ++this.maquina.acertos;
             }
 
-            this.maquina.tabuleiro.alteraTabuleiro(this.jogador1.navios.navios, this.maquina);
+            this.maquina.board.updateBoard(this.jogador1.ships.ships, this.maquina);
             if (this.jogador1.acertos == 10) {
                 System.out.println("JOGADOR VENCEU O JOGO");
                 break;

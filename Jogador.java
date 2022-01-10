@@ -3,29 +3,29 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Jogador {
-    Tabuleiro tabuleiro;
-    Ships navios;
+    Board board;
+    Ships ships;
     int[] tiro = new int[2];
     boolean isPlayer;
     int acertos;
     char[] colunasArray = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
-    public Jogador(Tabuleiro tabuleiro, Ships navios, boolean isPlayer) {
-        this.tabuleiro = tabuleiro;
-        this.navios = navios;
+    public Jogador(Board board, Ships ships, boolean isPlayer) {
+        this.board = board;
+        this.ships = ships;
         this.isPlayer = isPlayer;
     }
 
     public void showGrade() {
-        this.tabuleiro.mostraTabuleiro(this.isPlayer);
+        this.board.showBoard(this.isPlayer);
     }
 
     public void placeShips() {
-        this.navios.startPlayerShips(this.tabuleiro.grade);
+        this.ships.startPlayerShips(this.board.grid);
     }
 
     public void placeComputerShips() {
-        this.navios.startComputerShips(this.tabuleiro.grade);
+        this.ships.startComputerShips(this.board.grid);
     }
 
     public void darTiroAliado() {
