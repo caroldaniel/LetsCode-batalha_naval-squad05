@@ -2,12 +2,9 @@ public class Tabuleiro {
     int[][] grade = new int[10][10];
     String[] colunasArray = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
-    public Tabuleiro() {
-    }
-
     public void inicializaTabuleiro() {
-        for(int linha = 0; linha < 10; ++linha) {
-            for(int coluna = 0; coluna < 10; ++coluna) {
+        for (int linha = 0; linha < 10; ++linha) {
+            for (int coluna = 0; coluna < 10; ++coluna) {
                 this.grade[linha][coluna] = -1;
             }
         }
@@ -27,10 +24,10 @@ public class Tabuleiro {
 
         System.out.println("\t 1 \t 2 \t 3 \t 4 \t 5 \t 6 \t 7 \t 8 \t 9 \t10");
 
-        for(int linha = 0; linha < 10; ++linha) {
+        for (int linha = 0; linha < 10; ++linha) {
             System.out.print(this.colunasArray[linha]);
 
-            for(int coluna = 0; coluna < 10; ++coluna) {
+            for (int coluna = 0; coluna < 10; ++coluna) {
                 if (this.grade[linha][coluna] == -1) {
                     System.out.print("\t| |");
                 } else if (this.grade[linha][coluna] == 0) {

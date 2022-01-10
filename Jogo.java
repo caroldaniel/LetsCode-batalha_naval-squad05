@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Jogo {
     Jogador jogador1;
     Jogador maquina;
