@@ -34,7 +34,7 @@ public class Jogador {
         this.tiro[0] = (new String(this.colunasArray)).indexOf(entrada.next().toUpperCase(Locale.ROOT));
         System.out.println("Coluna: ");
         this.tiro[1] = entrada.nextInt();
-        int var10002 = this.tiro[1]--;
+        this.tiro[1] = this.tiro[1]--;
     }
 
     public void darTiroInimigo() {
