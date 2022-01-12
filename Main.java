@@ -1,15 +1,21 @@
 public class Main {
-
     public static void main(String[] args) {
-        Board boardJogador = new Board();
-        Board boardMaquina = new Board();
-        Ships naviosJogador = new Ships();
-        Ships naviosMaquina = new Ships();
-        Jogador joao = new Jogador(boardJogador, naviosJogador, true);
-        Jogador maquina = new Jogador(boardMaquina, naviosMaquina, false);
-        Jogo batalhaNaval = new Jogo(joao, maquina);
+		// inicialização dos tabuleiros
+        Board boardUser = new Board();
+        Board boardEnemy = new Board();
 
+		// inicialização dos navios 
+        Ships shipsUser = new Ships();
+        Ships shipsEnemy = new Ships();
 
-        batalhaNaval.play();
+		// inicialização dos jogadores
+        Player user = new Player(boardUser, shipsUser, true);
+        Player enemy = new Player(boardEnemy, shipsEnemy, false);
+
+		// inicialização do jogo
+        Game battleship = new Game(user, enemy);
+
+		// start!
+        battleship.play();
     }
 }
