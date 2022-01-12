@@ -60,6 +60,12 @@ public class Player {
         this.shoot[1] = random.nextInt(10);
     }
 
+    // função para dar o ultimo tiro certeiro, apenas para fins avaliativos
+    public void lastHist(int[][] enemyShips) {
+        this.shoot[0] = enemyShips[0][0];
+        this.shoot[1] = enemyShips[0][1];
+    }
+
 	// imprimir a mensagem se o usuário acertar o tiro
     public boolean hit(int[][] enemyShips) {
         for (int[] ints : enemyShips) {

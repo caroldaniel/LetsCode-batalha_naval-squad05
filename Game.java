@@ -28,12 +28,15 @@ public class Game {
 		// Laço para refazer jogada até um dos participantes terem 10 acertos a navios adversários
         while (true) {
             this.user.showGrid();
+
             this.user.userShoot();
 
             if (this.user.hit(this.enemy.ships.ships)) {
                 ++this.user.hits;
             }
             this.user.board.updateBoard(this.enemy.ships.ships, this.user);
+
+            instaWin();
             this.enemy.enemyShoot();
             if (this.enemy.hit(this.user.ships.ships)) {
                 ++this.enemy.hits;
@@ -54,5 +57,14 @@ public class Game {
 		// Mostrar grid dos dois jogadores ao final
         this.user.showGrid();
         this.enemy.showGrid();
+    }
+    // Metodo para a maquina ganhar em uma rodada, apenas para fins avaliativos
+    private void instaWin() {
+        this.enemy.hits = 9;
+        this.enemy.lastHist(this.user.ships.ships);
+        if (this.enemy.hit(this.user.ships.ships)) {
+            ++this.enemy.hits;
+        }
+        this.enemy.board.updateBoard(this.user.ships.ships, this.enemy);
     }
 }
